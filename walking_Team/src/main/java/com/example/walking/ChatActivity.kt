@@ -15,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -320,6 +321,7 @@ class ChatActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
                 holder.msgBgColor.gravity = Gravity.RIGHT
                 holder.msgTime.visibility = View.GONE
                 holder.msgTime2.visibility = View.VISIBLE
+                holder.card.visibility = View.GONE
             }else{//상대
                 holder.msgTxt.setBackgroundResource(R.drawable.s_chat_le)
                 holder.msgProfileImg.visibility = View.VISIBLE
@@ -329,6 +331,7 @@ class ChatActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
                 holder.msgBgColor.gravity = Gravity.LEFT
                 holder.msgTime.visibility = View.VISIBLE
                 holder.msgTime2.visibility = View.GONE
+                holder.card.visibility = View.VISIBLE
 
                 val inetworkService =(this@ChatActivity?.applicationContext as MyApplication).networkService
                 var oneUserCall = inetworkService.doGetOneUser(comments[position].username)
@@ -377,6 +380,7 @@ class ChatActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
             val msgTime: TextView = view.findViewById(R.id.chatMsgTime)
             val msgBgColor: LinearLayout = view.findViewById(R.id.chatMsgLayoutBg)
             val msgTime2: TextView = view.findViewById(R.id.chatMsgTime2)
+            val card: CardView = view.findViewById(R.id.profilecard)
         }
     }
 
